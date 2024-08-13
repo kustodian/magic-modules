@@ -106,7 +106,7 @@ func computeInstanceImportStep(zone, instanceName string, additionalImportIgnore
 	// metadata is only read into state if set in the config
 	// importing doesn't know whether metadata.startup_script vs metadata_startup_script is set in the config,
 	// it always takes metadata.startup-script
-	ignores := []string{"metadata.%", "metadata.startup-script", "metadata_startup_script", "boot_disk.0.initialize_params.0.resource_manager_tags.%",  "params.0.resource_manager_tags.%"}
+	ignores := []string{"metadata.%", "metadata.startup-script", "metadata_startup_script", "boot_disk.0.initialize_params.0.resource_manager_tags.%",  "params.0.resource_manager_tags.%", "terraform_labels"}
 
 	return resource.TestStep{
 		ResourceName:            "google_compute_instance.foobar",
@@ -385,9 +385,10 @@ func TestAccComputeInstance_IPv6(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 		},
 	})
@@ -3208,9 +3209,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithTwoAccessConfigs(t *test
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 		},
 	})
@@ -3235,9 +3237,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithEmptyAndNullSecurityPoli
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 		},
 	})
@@ -3264,9 +3267,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfi
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 			{
 				Config: testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfigsUpdateTwoPolicies(suffix, policyName, policyName2, instanceName, "google_compute_region_security_policy.policyforinstance.self_link", "google_compute_region_security_policy.policyforinstance2.self_link"),
@@ -3277,9 +3281,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfi
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 		},
 	})
@@ -3341,9 +3346,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfi
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 			{
 				Config: testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfigsUpdateTwoPoliciesRemoveAccessConfig(suffix, policyName, policyName2, instanceName, "google_compute_region_security_policy.policyforinstance.self_link", "google_compute_region_security_policy.policyforinstance.self_link"),
@@ -3354,9 +3360,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfi
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 		},
 	})
@@ -3382,9 +3389,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfi
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 			{
 				Config: testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfigsUpdateTwoPolicies(suffix, policyName, policyName2, instanceName, "google_compute_region_security_policy.policyforinstance.self_link", "google_compute_region_security_policy.policyforinstance2.self_link"),
@@ -3396,9 +3404,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfi
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 			{
 				Config: testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfigsUpdateTwoPolicies(suffix, policyName, policyName2, instanceName, "google_compute_region_security_policy.policyforinstance2.self_link", "google_compute_region_security_policy.policyforinstance.self_link"),
@@ -3410,9 +3419,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfi
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 			{
 				Config: testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfigsUpdateTwoPolicies(suffix, policyName, policyName2, instanceName, "\"\"", "\"\""),
@@ -3423,9 +3433,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithTwoNicsAndTwoAccessConfi
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 		},
 	})
@@ -3451,9 +3462,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithAccessConfigUpdateAccess
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 			{
 				Config: testAccComputeInstance_nic_securityPolicyCreateWithTwoAccessConfigsUpdateAccessConfig(suffix, policyName, instanceName),
@@ -3464,9 +3476,10 @@ func testAccComputeInstance_nic_securityPolicyCreateWithAccessConfigUpdateAccess
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 			{
 				Config:      testAccComputeInstance_nic_securityPolicyCreateWithTwoAccessConfigsRemoveAccessConfig(suffix, policyName, instanceName),
@@ -9739,9 +9752,10 @@ func TestAccComputeInstance_bootDisk_storagePoolSpecified(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:      "google_compute_instance.foobar",
-				ImportState:       true,
-				ImportStateVerify: true,
+				ResourceName:            "google_compute_instance.foobar",
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"terraform_labels"},
 			},
 		},
 	})

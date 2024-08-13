@@ -92,6 +92,21 @@ terraform {
 
 Description of the change and how users should adjust their configuration (if needed).
 
+### Provider attribution label is enabled by default
+
+Version 5.0.0 introduced the `goog-terraform-provisioned = true` label that could
+be automatically added to resources, making it easy to identify resources created
+by the provider when using other tools such as `gcloud` or the GCP web console. In
+5.0.0 the label needed to be enabled explicitly; in 6.0.0 the default is to add the
+label to all newly created resources. This behavior can be disabled in the provider
+configuration. For example:
+
+```hcl
+provider "google" {
+  add_terraform_attribution_label = false
+}
+```
+
 ## Datasources
 
 ## Datasource: `google_product_datasource`

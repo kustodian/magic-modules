@@ -331,7 +331,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceTCPProbesUpdate(t *testing.T) {
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection", "terraform_labels"},
 			},
 			{
 				Config: testAccCloudRunV2Service_cloudrunv2ServiceUpdateWithTCPStartupProbeAndHTTPLivenessProbe(context),
@@ -340,7 +340,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceTCPProbesUpdate(t *testing.T) {
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection", "terraform_labels"},
 			},
 		},
 	})
@@ -365,7 +365,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceHTTPProbesUpdate(t *testing.T) {
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection", "terraform_labels"},
 			},
 			{
 				Config: testAccCloudRunV2Service_cloudrunv2ServiceUpdateWithHTTPStartupProbe(context),
@@ -374,7 +374,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceHTTPProbesUpdate(t *testing.T) {
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection", "terraform_labels"},
 			},
 		},
 	})
@@ -400,7 +400,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceGRPCProbesUpdate(t *testing.T) {
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection", "terraform_labels"},
 			},
 			{
 				Config: testAccCloudRunV2Service_cloudRunServiceUpdateWithGRPCLivenessProbe(context),
@@ -409,7 +409,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceGRPCProbesUpdate(t *testing.T) {
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "deletion_protection", "terraform_labels"},
 			},
 			// The following test steps of gRPC startup probe are expected to fail with startup probe check failures.
 			// This is because, due to the unavailability of ready-to-use container images of a gRPC service that
@@ -724,7 +724,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceWithDirectVPCUpdate(t *testing.T)
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "deletion_protection", "terraform_labels"},
 			},
 			{
 				Config: testAccCloudRunV2Service_cloudRunServiceWithDirectVPCUpdate(context),
@@ -733,7 +733,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceWithDirectVPCUpdate(t *testing.T)
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "deletion_protection", "terraform_labels"},
 			},
 		},
 	})
@@ -799,7 +799,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceCustomAudienceUpdate(t *testing.T
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "launch_stage", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "launch_stage", "deletion_protection", "terraform_labels"},
 			},
       {
 				Config: testAccCloudRunV2Service_cloudRunServiceUpdateWithCustomAudience(serviceName, "test_update"),
@@ -808,7 +808,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceCustomAudienceUpdate(t *testing.T
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "launch_stage", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "launch_stage", "deletion_protection", "terraform_labels"},
 			},
 			{
 				Config: testAccCloudRunV2Service_cloudRunServiceUpdateWithoutCustomAudience(serviceName),
@@ -817,7 +817,7 @@ func TestAccCloudRunV2Service_cloudrunv2ServiceCustomAudienceUpdate(t *testing.T
 				ResourceName:            "google_cloud_run_v2_service.default",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "launch_stage", "deletion_protection"},
+				ImportStateVerifyIgnore: []string{"name", "location", "annotations", "launch_stage", "deletion_protection", "terraform_labels"},
 			},
 		},
 	})
