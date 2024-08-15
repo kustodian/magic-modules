@@ -752,10 +752,9 @@ func TestAccComputeRegionInstanceTemplate_enableDisplay(t *testing.T) {
 				Config: testAccComputeRegionInstanceTemplate_enableDisplay(acctest.RandString(t, 10)),
 			},
 			{
-				ResourceName:            "google_compute_region_instance_template.foobar",
-				ImportState:             true,
-				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"terraform_labels"},
+				ResourceName:      "google_compute_region_instance_template.foobar",
+				ImportState:       true,
+				ImportStateVerify: true,
 			},
 		},
 	})
@@ -830,7 +829,7 @@ func TestAccComputeRegionInstanceTemplate_withScratchDisk(t *testing.T) {
 				ResourceName:            "google_compute_region_instance_template.foobar",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name_prefix", "terraform_labels"},
+				ImportStateVerifyIgnore: []string{"name_prefix"},
 			},
 		},
 	})
@@ -850,7 +849,7 @@ func TestAccComputeRegionInstanceTemplate_with18TbScratchDisk(t *testing.T) {
 				ResourceName:            "google_compute_region_instance_template.foobar",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name_prefix", "terraform_labels"},
+				ImportStateVerifyIgnore: []string{"name_prefix"},
 			},
 		},
 	})
@@ -877,7 +876,7 @@ func TestAccComputeRegionInstanceTemplate_imageResourceTest(t *testing.T) {
 				ResourceName:            "google_compute_region_instance_template.foobar",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name_prefix", "terraform_labels"},
+				ImportStateVerifyIgnore: []string{"name_prefix"},
 			},
 			{
 				Config: testAccComputeRegionInstanceTemplate_imageResourceTest(diskName, computeImage, imageDesc2),
@@ -886,7 +885,7 @@ func TestAccComputeRegionInstanceTemplate_imageResourceTest(t *testing.T) {
 				ResourceName:            "google_compute_region_instance_template.foobar",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"name_prefix", "terraform_labels"},
+				ImportStateVerifyIgnore: []string{"name_prefix"},
 			},
 		},
 	})
@@ -1018,10 +1017,9 @@ func TestAccComputeRegionInstanceTemplate_spot(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:            "google_compute_region_instance_template.foobar",
-				ImportState:             true,
-				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"terraform_labels"},
+				ResourceName:      "google_compute_region_instance_template.foobar",
+				ImportState:       true,
+				ImportStateVerify: true,
 			},
 		},
 	})
@@ -1054,10 +1052,9 @@ func TestAccComputeRegionInstanceTemplate_spot_maxRunDuration(t *testing.T) {
 				),
 			},
 			{
-				ResourceName:            "google_compute_region_instance_template.foobar",
-				ImportState:             true,
-				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"terraform_labels"},
+				ResourceName:      "google_compute_region_instance_template.foobar",
+				ImportState:       true,
+				ImportStateVerify: true,
 			},
 		},
 	})
@@ -1088,10 +1085,9 @@ func TestAccComputeRegionInstanceTemplate_maxRunDuration_onInstanceStopAction(t 
 				),
 			},
 			{
-				ResourceName:            "google_compute_region_instance_template.foobar",
-				ImportState:             true,
-				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"terraform_labels"},
+				ResourceName:      "google_compute_region_instance_template.foobar",
+				ImportState:       true,
+				ImportStateVerify: true,
 			},
 		},
 	})
@@ -1120,10 +1116,9 @@ func TestAccComputeRegionInstanceTemplate_localSsdRecoveryTimeout(t *testing.T) 
 				),
 			},
 			{
-				ResourceName:            "google_compute_region_instance_template.foobar",
-				ImportState:             true,
-				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"terraform_labels"},
+				ResourceName:      "google_compute_region_instance_template.foobar",
+				ImportState:       true,
+				ImportStateVerify: true,
 			},
 		},
 	})
@@ -1157,7 +1152,7 @@ func TestAccComputeRegionalInstanceTemplate_partnerMetadata(t *testing.T) {
 				ResourceName:      "google_compute_region_instance_template.foobar",
 				ImportState:       true,
 				ImportStateVerify: true,
-				ImportStateVerifyIgnore: []string{fmt.Sprintf("partner_metadata.%s", namespace), "terraform_labels"},
+				ImportStateVerifyIgnore: []string{fmt.Sprintf("partner_metadata.%s", namespace)},
 			},
 		},
 	})
@@ -1194,7 +1189,7 @@ func TestAccComputeRegionInstanceTemplate_sourceSnapshotEncryptionKey(t *testing
 				ResourceName:            "google_compute_region_instance_template.template",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"disk.0.source_snapshot", "disk.0.source_snapshot_encryption_key", "terraform_labels"},
+				ImportStateVerifyIgnore: []string{"disk.0.source_snapshot", "disk.0.source_snapshot_encryption_key"},
 			},
 		},
 	})
@@ -1228,7 +1223,7 @@ func TestAccComputeRegionInstanceTemplate_sourceImageEncryptionKey(t *testing.T)
 				ResourceName:            "google_compute_region_instance_template.template",
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"disk.0.source_image_encryption_key", "terraform_labels"},
+				ImportStateVerifyIgnore: []string{"disk.0.source_image_encryption_key"},
 			},
 		},
 	})
